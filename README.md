@@ -1,110 +1,72 @@
-# RPE-Melanocytes
+# 🧬 Evolutionary Homology Between RPE and Melanocytes
 
-This repository contains Jupyter notebooks for single-cell RNA sequencing (scRNA-seq) data analysis
+This repository accompanies the manuscript:
 
-Notebooks Overview
-Notebook 1_a: RPE Control scRNA-seq Analysis
+**"Melanocytes and photosensory organs share a common ancestry that illuminates the origins of the neural crest"**  
+Yuliia Fatieieva, Rozalina Galimullina, Sergei Isaev, Alexander Klimovich, Laurence A. Lemaire and Igor Adameyko
 
-    Description: This notebook reanalyzes scRNA-seq data from GEO (sample GSM5560840), representing Retinal Pigment Epithelial (RPE) control cells.
-    Key Analysis:
-        Initial quality control, normalization, and clustering using Seurat.
-        Principal component analysis (PCA), nearest-neighbor graph construction, clustering using the Leiden algorithm, and UMAP visualization.
-        Doublet detection and removal using DoubletFinder.
-        Identification of major cell types, including Melanocytes, RPE cells, Pericytes, Macrophages, NK cells, and more.
+We provide a multi-modal comparative analysis supporting the homology between neural crest-derived melanocytes and retinal pigment epithelium (RPE). Leveraging single-cell transcriptomics, chromatin accessibility, spatial gene expression, and evolutionary inference, we identify a conserved regulatory and transcriptional core tracing back to a photosensory ancestor.
 
-Notebook 1_b: RPE and Melanocyte Subclustering
+---
 
-    Description: Focuses on further subclustering of RPE and Melanocyte populations from Notebook 1_a.
-    Key Analysis:
-        Subclustering with a low-resolution setting using PCA and UMAP.
-        Identification of marker genes for subclusters, followed by protein-protein interaction (PPI) analysis using STRING and Gene Ontology (GO) enrichment analysis.
+## 🔬 Summary of Findings
 
-Notebook 2: Comparative Analysis of RPE and Melanocyte Clusters
+- RPE and melanocytes share a deeply conserved gene regulatory and transcriptional program.
+- Evolutionary tree reconstruction places them as closest relatives among pigment cell types.
+- Ciona's pigmented ocellus expresses overlapping TFs with vertebrate RPE/melanocytes.
+- Phylostratigraphy shows that melanocytes and RPE each gained new genes after they split from a common ancestor.
+- The findings suggest that pigment cells in the neural crest evolved from an earlier photosensory cell type.
 
-    Description: Performs a comparative analysis of the RPE and Melanocyte clusters, identifying genes uniquely expressed in these populations.
-    Key Analysis:
-        Merging RPE and Melano clusters for differential expression analysis using FindAllMarkers.
-        Heatmap visualization of highly variable genes and enrichment analysis of key molecular pathways through GO and STRING.
+---
 
-Notebook 3_a: Transcription Factor Analysis
+## 📁 Repository Contents
 
-    Description: Analyzes transcription factors in the dataset using a curated list from the Animal Transcription Factor Database (AnimalTFDB).
-    Key Analysis:
-        PCA and re-clustering to investigate transcription factors within RPE and other cell types.
-        Hierarchical clustering and cladistics analysis using Cassiopeia and visualization via Interactive Tree of Life (iTOL).
+| Notebook | Description |
+|----------|-------------|
+| `Notebook1_a.ipynb`, `1_b.ipynb` | Murine anterior eye chamber scRNA-seq (GSM5560840), RPE/melanocyte subclustering |
+| `Notebook2.ipynb` | Shared gene program identification and GO/STRING enrichment |
+| `Notebook3_a.ipynb` – `3_e.ipynb` | TF-only dimensionality reduction, CASSIOPEIA tree construction, and SCENIC regulon analysis |
+| `Notebook4_a.ipynb` – `4_d2.ipynb` | Human eye development (GSE155121, GSE210543) and mouse spatial Stereo-seq (CNP0001543) |
+| `Notebook5_a.ipynb` – `5_c.ipynb` | Tunicate (Ciona intestinalis) pigmented ocellus subclustering and TF-based homology |
+| `Notebook6_a.ipynb`, `6_b.ipynb` | Phylostratigraphic analysis of gene age and innovation |
+| `Notebook7_a.ipynb` – `7_e.ipynb` | Pinealocyte comparisons and additional skin melanocyte integration |
+| `Notebook8_a.ipynb`, `8_b.ipynb` | Auxiliary or intermediate processing (not directly shown in main figures) |
+| `Notebook9_a.ipynb`, `9_b.ipynb` | Exploratory or validation analyses not featured in final manuscript |
+| `Notebook10_a.ipynb`, `10_a(1).ipynb`, `10_b.ipynb`, `10_b(1).ipynb` | Gene evolutionary age (phylostratigraphy); linked to Figure 10 |
+| `Notebook12.ipynb` | Combined dendrogram (RPE, melanocytes, pinealocytes, retina, immune cells) |
+| `Notebook_suppl3_j.ipynb` | Supplementary quality controls, batch effect checks, and GO validation |
 
-Notebook 3_b: Further Transcription Factor Clustering
+---
 
-    Description: Extends the transcription factor analysis by refining clustering and investigating lineage relationships.
-    Key Analysis:
-        Re-clustering and further analysis using known marker genes for lineage reconstruction and transcriptional networks.
+## 📊 Datasets Used
 
-Notebook 3_c: Additional Marker Gene Analysis
+| Dataset | Accession | Description |
+|--------|-----------|-------------|
+| Murine anterior eye | [GSM5560840](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM5560840) | RPE, melanocytes, and anterior ocular structures |
+| Mouse skin melanocytes | [GSE131498](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131498) | P0 back skin |
+|  | [GSE181390](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181390) | P4 skin |
+|  | [GSE203051](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE203051) | Anagen II melanocyte stem cells |
+|  | [GSE147298](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE147298) | Quiescent melanocyte stem cells |
+| Human fetal eye (early) | [GSE155121](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155121) | Weeks 4–8 eye development |
+| Human fetal eye (late) | [GSE210543](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE210543) | Weeks 12–21 foveal tissue |
+| Mouse spatial (Stereo-seq) | [CNP0001543](https://db.cngb.org/search/project/CNP0001543/) | E14.5 and E16.5 mouse embryonic eye |
+| Tunicate (Ciona intestinalis) | [GSE131155](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131155) | Pigmented ocellus and brain primordium |
 
-    Description: Provides additional analysis for identifying key marker genes across cell populations.
-    Key Analysis:
-        Investigating significant genes in each cluster to deepen the understanding of cell-type-specific transcriptional activity.
+---
 
-Notebook 3_d: Gene Regulatory Network (GRN) Inference in RPE Cells
+## 🛠️ Tools and Packages
 
-    Description: Applies the SCENIC pipeline for gene regulatory network inference in RPE cells.
-    Key Analysis:
-        GRN inference using GRNBoost2, regulon definition via cisTarget, and AUCell for transcription factor activity scoring.
-        Visualization of regulon activity across RPE and Melano populations.
+- R: `Seurat`, `DoubletFinder`, `STRINGdb`
+- Python: `Scanpy`, `SCENIC`, `Squidpy`, `CASSIOPEIA`, `biomaRt`
+- TF classification: AnimalTFDB
+- Enrichment: `ShinyGO v0.75`, `STRING v11.5`
+- Visualization: `iTOL`, `ggtree`
 
-Notebook 3_e: Further GRN Refinement
+---
 
-    Description: Continues the GRN analysis with refinements and additional regulatory insights.
-    Key Analysis:
-        Integration of SCENIC results into AnnData, providing further insights into transcriptional programs across cell populations.
+## 🧠 Biological Significance
 
-Notebook 4_a: Developmental Stage Analysis of RPE Cells
+Our study highlights a developmental and evolutionary link between melanocytes and RPE, two pigment-producing cell types previously thought to have arisen independently. This work supports a scenario in which pigment cells derive from ancestral photosensory lineages, with implications for the origin of the neural crest and evolution of sensory systems in chordates.
 
-    Description: Analyzes developmental stages (Weeks 4-8) of RPE cells using scRNA-seq data (GSE155121) in Scanpy.
-    Key Analysis:
-        Quality control and merging of scRNA-seq data across weeks.
-        PCA, UMAP, and Leiden clustering, followed by subclustering of RPE populations.
+---
 
-Notebook 4_c: Reanalysis of RPE and Melanocyte scRNA-seq Data
-
-    Description: Reanalyzes scRNA-seq data from GEO (GSE210543), focusing on RPE and Melanocyte subclusters.
-    Key Analysis:
-        Subclustering based on marker gene expression, re-identification of highly variable genes, and recalculated PCA and UMAP visualization.
-
-Notebook 4_d(1), (2): Stereo-seq Data Analysis for RPE Developmental Stages
-
-    Description: Reanalyzes Stereo-seq data from CNGB (CNP0001543) focusing on developmental stages E14.5 and E16.5.
-    Key Analysis:
-        PCA and UMAP visualization for spatial analysis of melanocytes and RPE cells within developmental tissue contexts.
-        Spatial analysis using Squidpy to explore cellular community organization.
-
-Notebook 5_a: Transcriptomics of Ciona intestinalis Tailbud Development
-
-    Description: Analyzes scRNA-seq data from Ciona intestinalis across various developmental stages (GSE131155).
-    Key Analysis:
-        Quality control, PCA, and clustering of developmental stages.
-        Identification of RPE-related genes, cross-species comparisons with mouse orthologs, and gene regulatory network analysis using STRING.
-
-Notebook 5_b: Ortholog Analysis in Ciona and Mouse
-
-    Description: Extends analysis of Ciona orthologs in mouse models.
-    Key Analysis:
-        Gene ortholog identification, protein-protein interactions, and biological pathway enrichment for comparative transcriptomics.
-
-Notebook 5_c: Cladistics Tree Construction
-
-    Description: Constructs a parsimony-based cladistics tree using the Cassiopeia toolkit.
-    Key Analysis:
-        Preparation of dataframes and lineage reconstruction analysis across Ciona genes.
-
-Notebook 6: Phylostratigraphy Analysis of Mouse Genes
-
-    Description: Conducts phylostratigraphy analysis to assign evolutionary origins to genes within the mouse genome.
-    Key Analysis:
-        Gene mapping to phylogenetic transitions, identification of melanocyte and RPE marker genes, and differential gene expression analysis in Seurat.
-
-Supplementary 3: Single-Nucleus RNA Sequencing of Monkey Pineal Gland and Pigmentary Epithelium from (https://db.cngb.org/nhpca/)
-
-    Description: Analyzes snRNA-seq data from the monkey pineal gland and pigmentary epithelium using Seurat.
-    Key Analysis:
-        Clustering of nuclei, UMAP visualization, and identification of key cell types including pinealocytes, melanocytes, and RPE cells.

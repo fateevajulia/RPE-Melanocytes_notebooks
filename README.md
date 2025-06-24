@@ -1,6 +1,6 @@
 # 🧬 Evolutionary Homology Between RPE and Melanocytes
 
-This repository accompanies the manuscript:
+This repository is for the manuscript:
 
 **"Melanocytes and photosensory organs share a common ancestry that illuminates the origins of the neural crest"**  
 Yuliia Fatieieva, Rozalina Galimullina, Sergei Isaev, Alexander Klimovich, Laurence A. Lemaire and Igor Adameyko
